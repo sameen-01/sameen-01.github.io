@@ -2,24 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sameen | Computer Science Student</title>
+  <title>Sameen Dharia | Computer Science</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Sameen – third-year Computer Science student at Wilfrid Laurier University, interested in computer networks and RISC-V CPU design."
+    content="Sameen Dharia – third-year Computer Science student at Wilfrid Laurier University, interested in computer networks and RISC-V CPU design."
   />
   <style>
     :root {
-      --bg: #060714;
-      --card: #0f1024;
-      --accent: #4b82ff;
-      --accent-soft: rgba(75, 130, 255, 0.18);
-      --text-main: #f5f5f5;
-      --text-muted: #a5a8c5;
-      --border-subtle: rgba(255, 255, 255, 0.08);
+      --bg: #f5f5f8;
+      --bg-soft: #ffffff;
+      --bg-section: #f0f2f7;
+      --accent: #3b6fd8;
+      --accent-soft: #e3ecff;
+      --text-main: #13141a;
+      --text-muted: #6b7280;
+      --border-subtle: #e1e4ee;
       --radius-lg: 18px;
       --radius-full: 999px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --shadow-soft: 0 12px 35px rgba(15, 23, 42, 0.07);
     }
 
     * {
@@ -31,37 +32,38 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #16192f 0, #020312 55%, #000000 100%);
+      background: radial-gradient(circle at top, #eef2ff 0, #f5f5f8 40%, #f7f7fb 100%);
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 32px 16px;
+      padding: 24px 12px 32px;
     }
 
     .shell {
       width: 100%;
-      max-width: 960px;
-      border-radius: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: radial-gradient(circle at top left, #191c3b 0, #070818 50%, #050513 100%);
+      max-width: 1000px;
+      border-radius: 24px;
+      border: 1px solid #e5e7f2;
+      background: #ffffff;
       box-shadow: var(--shadow-soft);
-      padding: 28px 24px 32px;
-      backdrop-filter: blur(22px);
+      padding: 20px 20px 28px;
     }
 
     @media (min-width: 768px) {
       .shell {
-        padding: 32px 36px 40px;
+        padding: 22px 28px 32px;
       }
     }
 
-    header {
+    /* Top navigation */
+
+    .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
 
     .logo-mark {
@@ -74,20 +76,22 @@
       width: 34px;
       height: 34px;
       border-radius: var(--radius-full);
-      border: 1px solid var(--accent);
-      background: radial-gradient(circle at 30% 0%, #4b82ff 0, #1d2347 40%, #050514 100%);
+      border: 1px solid rgba(59, 111, 216, 0.18);
+      background: radial-gradient(circle at 30% 0%, #ffffff 0, #e1ebff 45%, #c0d4ff 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
       font-size: 17px;
+      color: #234485;
     }
 
     .logo-text-main {
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       font-size: 14px;
       text-transform: uppercase;
+      color: #111827;
     }
 
     .logo-text-sub {
@@ -97,10 +101,41 @@
       letter-spacing: 0.12em;
     }
 
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4b5563;
+      padding: 6px 10px;
+      border-radius: var(--radius-full);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      background: #edf1ff;
+      color: #1f3f7b;
+    }
+
+    .nav-links .nav-primary {
+      border-radius: var(--radius-full);
+      background: #edf1ff;
+      color: #1f3f7b;
+      font-weight: 500;
+    }
+
+    /* Chips / top info */
+
     .chip-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin-bottom: 18px;
     }
 
     .chip {
@@ -109,58 +144,60 @@
       border-radius: var(--radius-full);
       border: 1px solid var(--border-subtle);
       color: var(--text-muted);
-      background: rgba(0, 0, 0, 0.36);
+      background: #f9fafb;
     }
 
     .chip--accent {
-      border-color: var(--accent-soft);
-      background: linear-gradient(135deg, rgba(75, 130, 255, 0.16), rgba(4, 4, 18, 0.9));
-      color: #dde5ff;
+      border-color: rgba(59, 111, 216, 0.28);
+      background: #e8f0ff;
+      color: #1f3f7b;
+      font-weight: 500;
     }
 
     main {
       display: grid;
       grid-template-columns: minmax(0, 3fr);
-      gap: 22px;
+      gap: 26px;
     }
 
     @media (min-width: 880px) {
       main {
-        grid-template-columns: minmax(0, 3.5fr) minmax(0, 2.3fr);
+        grid-template-columns: minmax(0, 3.3fr) minmax(0, 2.4fr);
       }
     }
 
+    /* Hero section */
+
     .hero {
       padding: 18px 18px 20px;
-      border-radius: 22px;
-      background: radial-gradient(circle at right, rgba(75, 130, 255, 0.16) 0, #050515 40%);
-      border: 1px solid rgba(75, 130, 255, 0.32);
-      position: relative;
-      overflow: hidden;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #f6f8ff, #ffffff);
+      border: 1px solid #e0e5f5;
     }
 
     .hero-heading {
-      font-size: 32px;
-      line-height: 1.1;
+      font-size: 30px;
+      line-height: 1.15;
       margin-bottom: 10px;
+      color: #111827;
     }
 
     .hero-heading span {
-      background: linear-gradient(120deg, #ffffff, #93b4ff);
+      background: linear-gradient(120deg, #1f2937, #3b6fd8);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero-subtitle {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--text-muted);
-      max-width: 520px;
-      margin-bottom: 18px;
+      max-width: 540px;
+      margin-bottom: 16px;
     }
 
     .hero-subtitle strong {
-      color: #e5e7ff;
+      color: #111827;
       font-weight: 500;
     }
 
@@ -169,18 +206,18 @@
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .hero-tag {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: var(--text-muted);
-      padding: 4px 8px;
+      color: #4b5563;
+      padding: 4px 9px;
       border-radius: var(--radius-full);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(3, 4, 18, 0.9);
+      border: 1px solid #e5e7f2;
+      background: #f9fafb;
     }
 
     .hero-pills {
@@ -193,16 +230,16 @@
       font-size: 11px;
       padding: 5px 10px;
       border-radius: var(--radius-full);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(0, 0, 0, 0.4);
-      color: var(--text-muted);
+      border: 1px solid #e5e7f2;
+      background: #f9fafb;
+      color: #4b5563;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     .btn {
@@ -216,47 +253,37 @@
       align-items: center;
       gap: 8px;
       transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease,
-        border-color 0.12s ease;
+        border-color 0.12s ease, color 0.12s ease;
       white-space: nowrap;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #4b82ff, #628dff);
-      border-color: #8fb0ff;
-      color: #020312;
+      background: linear-gradient(135deg, #3b6fd8, #527fe0);
+      border-color: #3b6fd8;
+      color: #ffffff;
       font-weight: 600;
-      box-shadow: 0 8px 25px rgba(75, 130, 255, 0.42);
+      box-shadow: 0 8px 22px rgba(59, 111, 216, 0.25);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 32px rgba(75, 130, 255, 0.5);
+      box-shadow: 0 11px 28px rgba(59, 111, 216, 0.32);
     }
 
     .btn-ghost {
-      background: rgba(3, 5, 20, 0.9);
-      border-color: rgba(255, 255, 255, 0.1);
-      color: var(--text-muted);
+      background: #f9fafb;
+      border-color: #e5e7f2;
+      color: #374151;
     }
 
     .btn-ghost:hover {
-      border-color: rgba(255, 255, 255, 0.24);
-      background: rgba(6, 8, 28, 0.96);
+      border-color: #cbd2ea;
+      background: #eef1ff;
+      color: #1f3f7b;
       transform: translateY(-1px);
     }
 
-    .spark {
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(126, 165, 255, 0.32) 0, transparent 60%);
-      filter: blur(10px);
-      opacity: 0.7;
-      right: -80px;
-      top: -80px;
-      pointer-events: none;
-    }
+    /* Right-hand cards on home */
 
     .side {
       display: grid;
@@ -266,7 +293,7 @@
     .card {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
-      background: rgba(2, 3, 18, 0.92);
+      background: var(--bg-soft);
       padding: 13px 14px 14px;
       display: grid;
       gap: 6px;
@@ -283,21 +310,21 @@
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: var(--text-muted);
+      color: #6b7280;
     }
 
     .card-label {
       font-size: 11px;
       padding: 3px 8px;
       border-radius: var(--radius-full);
-      border: 1px solid rgba(75, 130, 255, 0.32);
-      background: rgba(75, 130, 255, 0.08);
-      color: #dce6ff;
+      border: 1px solid rgba(59, 111, 216, 0.26);
+      background: #e8f0ff;
+      color: #1f3f7b;
     }
 
     .card-main {
       font-size: 14px;
-      color: #e4e6ff;
+      color: #111827;
     }
 
     .card-sub {
@@ -316,9 +343,177 @@
       font-size: 11px;
       padding: 3px 9px;
       border-radius: var(--radius-full);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      background: rgba(5, 6, 24, 0.9);
+      border: 1px solid #e5e7f2;
+      background: #f9fafb;
+      color: #6b7280;
+    }
+
+    /* Lower sections (Projects & Resume) */
+
+    .section-wrapper {
+      margin-top: 26px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7f2;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
       color: var(--text-muted);
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    @media (min-width: 720px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .project-card {
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      background: #f9fafc;
+      padding: 14px 14px 12px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .project-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .project-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .project-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      background: #edf1ff;
+      color: #1f3f7b;
+      border: 1px solid rgba(59, 111, 216, 0.22);
+    }
+
+    .project-body {
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .project-points {
+      margin-left: 16px;
+      margin-top: 4px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .project-points li {
+      margin-bottom: 3px;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 12px;
+    }
+
+    .project-links a {
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: var(--radius-full);
+      border: 1px solid #d3d7ea;
+      color: #1f3f7b;
+      background: #ffffff;
+      transition: background 0.12s ease, border-color 0.12s ease;
+    }
+
+    .project-links a:hover {
+      background: #edf1ff;
+      border-color: #b6c3f0;
+    }
+
+    /* Resume section */
+
+    .resume-layout {
+      display: grid;
+      gap: 16px;
+    }
+
+    @media (min-width: 720px) {
+      .resume-layout {
+        grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.7fr);
+      }
+    }
+
+    .resume-card {
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      background: #f9fafc;
+      padding: 14px 15px 12px;
+      display: grid;
+      gap: 7px;
+    }
+
+    .resume-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .resume-text {
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .list {
+      margin-left: 16px;
+      margin-top: 2px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .list li {
+      margin-bottom: 3px;
+    }
+
+    .resume-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
     }
 
     footer {
@@ -329,7 +524,7 @@
       gap: 12px;
       font-size: 11px;
       color: var(--text-muted);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-top: 1px solid #e5e7f2;
       padding-top: 10px;
       flex-wrap: wrap;
     }
@@ -341,7 +536,7 @@
     }
 
     .footer-links a {
-      color: var(--text-muted);
+      color: #4b5563;
       text-decoration: none;
       border-bottom: 1px dashed transparent;
       padding-bottom: 1px;
@@ -349,43 +544,49 @@
     }
 
     .footer-links a:hover {
-      border-bottom-color: rgba(255, 255, 255, 0.35);
+      border-bottom-color: #9ca3c7;
     }
   </style>
 </head>
 <body>
   <div class="shell">
-    <header>
+    <!-- Top nav -->
+    <header class="nav">
       <div class="logo-mark">
         <div class="logo-circle">S</div>
         <div>
-          <div class="logo-text-main">Sameen</div>
+          <div class="logo-text-main">Sameen Dharia</div>
           <div class="logo-text-sub">Computer Science</div>
         </div>
       </div>
-      <div class="chip-row">
-        <span class="chip chip--accent">Open to internships</span>
-        <span class="chip">Networks • RISC-V • Systems</span>
-      </div>
+      <nav class="nav-links">
+        <a href="#home" class="nav-primary">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+      </nav>
     </header>
 
-    <main>
-      <!-- Left: Hero -->
-      <section class="hero">
-        <div class="spark" aria-hidden="true"></div>
+    <!-- Small chips under nav -->
+    <div class="chip-row">
+      <span class="chip chip--accent">Third-year CS @ Wilfrid Laurier</span>
+      <span class="chip">Networks • RISC-V • Systems</span>
+    </div>
 
+    <main id="home">
+      <!-- Hero / intro -->
+      <section class="hero">
         <h1 class="hero-heading">
           Hey, I’m <span>Sameen</span>.
         </h1>
 
         <p class="hero-subtitle">
-          I’m a <strong>third-year Computer Science student at Wilfrid Laurier University</strong>, interested in
+          I’m a <strong>third-year Computer Science student at Wilfrid Laurier University</strong> interested in
           low-level systems, <strong>computer networks</strong>, and <strong>RISC-V CPU design</strong>. I like
-          understanding how things actually work under the hood — from packets on the wire to signals in a pipeline.
+          understanding how things work under the hood — from packets on the wire to signals in a pipeline.
         </p>
 
         <div class="hero-meta">
-          <span class="hero-tag">Student • Systems & Networking</span>
+          <span class="hero-tag">Systems & Networking</span>
           <div class="hero-pills">
             <span class="hero-pill">C / C++</span>
             <span class="hero-pill">RISC-V</span>
@@ -395,26 +596,24 @@
         </div>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View featured work</a>
-          <a class="btn btn-ghost" href="mailto:sameendharia@gmail.com">Contact me</a>
+          <a class="btn btn-primary" href="#projects">View projects</a>
+          <a class="btn btn-ghost" href="#resume">See resume</a>
         </div>
       </section>
 
-      <!-- Right: Quick highlight cards -->
+      <!-- Right-hand quick cards -->
       <section class="side">
-        <article class="card" id="projects">
+        <article class="card">
           <div class="card-title-row">
-            <h2 class="card-title">RISC-V CPU Project</h2>
+            <h2 class="card-title">RISC-V CPU</h2>
             <span class="card-label">Hardware / VHDL</span>
           </div>
           <p class="card-main">
-            Building a basic <strong>RISC-V CPU</strong> from scratch, including an ALU, register file, and control
-            logic. Focused on understanding pipelines, instruction formats, and how machine code actually executes on
-            real hardware.
+            Building a basic <strong>RISC-V CPU</strong> from scratch, including an ALU, register file, and control logic.
           </p>
           <p class="card-sub">
-            This project taught me how to simulate, debug, and reason about logic-level behavior — timing, hazards,
-            control signals, and datapath flow.
+            This project gave me hands-on experience with VHDL, simulation, and tracking down timing / logic bugs at the
+            signal level.
           </p>
           <div class="pill-row">
             <span class="pill">RISC-V</span>
@@ -426,19 +625,18 @@
 
         <article class="card">
           <div class="card-title-row">
-            <h2 class="card-title">Networking & Systems</h2>
+            <h2 class="card-title">Networking</h2>
             <span class="card-label">Focus Area</span>
           </div>
           <p class="card-main">
-            I’m especially interested in how data moves through networks and operating systems: routing, congestion,
-            sockets, and the layers between raw bytes and usable applications.
+            I’m especially interested in how data moves through networks and operating systems: routing, congestion, sockets,
+            and the layers between raw bytes and usable applications.
           </p>
           <p class="card-sub">
-            I enjoy labs and projects involving <strong>socket programming</strong>, packet inspection, and experimenting with
-            network tools in Linux.
+            I enjoy labs and assignments that involve socket programming, packet inspection, and experimenting with tools on
+            Linux.
           </p>
           <div class="pill-row">
-            <span class="pill">Computer Networks</span>
             <span class="pill">TCP / UDP</span>
             <span class="pill">Socket Programming</span>
             <span class="pill">Linux Tools</span>
@@ -455,15 +653,179 @@
             performance, or hardware-adjacent software.
           </p>
           <p class="card-sub">
-            If your team works on systems programming, infrastructure, or hardware-level problem solving, I’d love to
-            connect.
+            If your team works on systems programming, infrastructure, or hardware-level problem solving, I’d love to connect.
           </p>
         </article>
       </section>
     </main>
 
+    <!-- Projects section -->
+    <section class="section-wrapper" id="projects">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-subtitle">
+            A few things I’ve been working on recently.
+          </p>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: RISC-V -->
+        <article class="project-card">
+          <div class="project-title-row">
+            <h3 class="project-title">RISC-V CPU Core</h3>
+            <span class="project-tag">Hardware • VHDL</span>
+          </div>
+          <p class="project-body">
+            Implemented a simple RISC-V CPU core with a custom ALU, register file, and control path, using VHDL and simulation
+            tools.
+          </p>
+          <ul class="project-points">
+            <li>Designed and tested arithmetic / logic operations and branching behavior in the ALU.</li>
+            <li>Connected instruction decode, register reads, ALU operations, and register writes in a working datapath.</li>
+            <li>Used simulation to debug timing and control-signal issues at the signal level.</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-links">
+              <!-- Replace # with your repo link when ready -->
+              <a href="#" target="_blank" rel="noopener">GitHub (coming soon)</a>
+            </div>
+            <div class="pill-row">
+              <span class="pill">RISC-V</span>
+              <span class="pill">VHDL</span>
+              <span class="pill">Digital Logic</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Networking / sockets -->
+        <article class="project-card">
+          <div class="project-title-row">
+            <h3 class="project-title">Networking Labs & Socket Tools</h3>
+            <span class="project-tag">Systems • Networking</span>
+          </div>
+          <p class="project-body">
+            Built small tools and lab programs to better understand how data moves through a network and OS stack.
+          </p>
+          <ul class="project-points">
+            <li>Wrote socket-based programs to send and receive data over TCP/UDP and observe behavior under different conditions.</li>
+            <li>Experimented with packet inspection and basic tracing using common Linux networking tools.</li>
+            <li>Focused on understanding the practical side of latency, throughput, and connection behavior.</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="https://github.com/sameen-01" target="_blank" rel="noopener">More on GitHub</a>
+            </div>
+            <div class="pill-row">
+              <span class="pill">C / C++</span>
+              <span class="pill">TCP / UDP</span>
+              <span class="pill">Linux</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Extra slots for future projects -->
+        <article class="project-card">
+          <div class="project-title-row">
+            <h3 class="project-title">Systems & Coursework</h3>
+            <span class="project-tag">Course Projects</span>
+          </div>
+          <p class="project-body">
+            A collection of assignments and labs from systems, logic, and programming courses that reinforced core CS concepts.
+          </p>
+          <ul class="project-points">
+            <li>Worked with data structures, algorithms, and memory management in C / C++.</li>
+            <li>Completed labs in digital logic and circuit design, connecting theory to implementation.</li>
+            <li>Built smaller utilities and scripts to automate repetitive tasks and experiments.</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="https://github.com/sameen-01" target="_blank" rel="noopener">View repositories</a>
+            </div>
+            <div class="pill-row">
+              <span class="pill">Data Structures</span>
+              <span class="pill">Algorithms</span>
+              <span class="pill">Automation</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Placeholder for a future highlight -->
+        <article class="project-card">
+          <div class="project-title-row">
+            <h3 class="project-title">Next Project</h3>
+            <span class="project-tag">Coming soon</span>
+          </div>
+          <p class="project-body">
+            Space reserved for an upcoming project — whether it’s more RISC-V work, a systems tool, or something networking-related.
+          </p>
+          <ul class="project-points">
+            <li>Actively exploring ideas in systems and infrastructure.</li>
+            <li>Open to project suggestions and collaboration.</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="mailto:sameendharia@gmail.com">Get in touch</a>
+            </div>
+            <div class="pill-row">
+              <span class="pill">Open to ideas</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Resume section -->
+    <section class="section-wrapper" id="resume">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Resume</h2>
+          <p class="section-subtitle">
+            Quick overview of my background. Full resume available as a PDF.
+          </p>
+        </div>
+      </div>
+
+      <div class="resume-layout">
+        <article class="resume-card">
+          <h3 class="resume-title">Summary</h3>
+          <p class="resume-text">
+            Third-year Computer Science student at Wilfrid Laurier University with interests in systems, networks, and
+            hardware-adjacent software. Comfortable working in C / C++, experimenting on Linux, and learning by building
+            things that run close to the metal.
+          </p>
+          <ul class="list">
+            <li>Core focus on computer networks, RISC-V, and digital logic.</li>
+            <li>Enjoy labs and projects that involve debugging, tracing, and performance.</li>
+          </ul>
+          <div class="resume-actions">
+            <!-- IMPORTANT: Upload your resume as resume.pdf to the repo root for this to work -->
+            <a class="btn btn-primary" href="./resume.pdf" target="_blank" rel="noopener">
+              Download PDF resume
+            </a>
+            <a class="btn btn-ghost" href="mailto:sameendharia@gmail.com">
+              Contact me
+            </a>
+          </div>
+        </article>
+
+        <article class="resume-card">
+          <h3 class="resume-title">Highlights</h3>
+          <ul class="list">
+            <li>Computer Science, Wilfrid Laurier University (third year).</li>
+            <li>Experience with C, C++, Python, and VHDL.</li>
+            <li>RISC-V CPU project with custom ALU and control logic.</li>
+            <li>Networking labs using sockets and Linux tooling.</li>
+            <li>Interested in systems, infrastructure, and low-level problems.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      <span>© <span id="year"></span> Sameen. All rights reserved.</span>
+      <span>© <span id="year"></span> Sameen Dharia. All rights reserved.</span>
       <div class="footer-links">
         <a href="https://github.com/sameen-01" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/sameen-dharia-20bba2210/" target="_blank" rel="noopener">LinkedIn</a>
@@ -477,3 +839,4 @@
   </div>
 </body>
 </html>
+
